@@ -10,8 +10,10 @@ const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(ORDERS_FILE)) fs.writeFileSync(ORDERS_FILE, "[]", "utf8");
+let orders = [];
+try {
+  if (fs.existsSync(ORDERS_FILE)) orders = JSON.parse(fs.readFileSync(ORDERS_FILE, "utf8"));
+} catch { orders = []; }
 
 const products = [
   {
@@ -64,12 +66,11 @@ const products = [
   }
 ];
 
-function readOrders() {
-  try { return JSON.parse(fs.readFileSync(ORDERS_FILE, "utf8")); }
-  catch { return []; }
-}
-function writeOrders(orders) {
-  fs.writeFileSync(ORDERS_FILE, JSON.stringify(orders, null, 2), "utf8");
+function readOrders() { return orders; }
+function writeOrders(newOrders) {
+  orders = newOrders;
+  try { fs.writeFileSync(ORDERS_FILE, JSON.stringify(orders, null, 2), "utf8"); }
+  catch { /* read-only filesystem on serverless platforms; in-memory store is used */ }
 }
 
 app.get("/api/products", (req, res) => res.json(products));
