@@ -16,7 +16,7 @@
   <header class="site-header">
     <a class="brand" href="#home" aria-label="PawQuest home"><span class="brand-mark">✳</span><span>pawquest<span class="brand-dot">.</span></span></a>
     <nav><a href="#how">How it works</a><a href="#shop">Shop</a><a href="#story">Our thinking</a></nav>
-    <button class="cart-trigger" id="cart-open" aria-label="Open cart">Bag <span id="cart-count">0</span></button>
+    <div class="header-actions"><button class="cart-trigger" id="orders-open" aria-label="View placed orders">Orders <span id="orders-count">0</span></button><button class="cart-trigger" id="cart-open" aria-label="Open cart">Bag <span id="cart-count">0</span></button></div>
   </header>
 
   <main>
@@ -81,6 +81,10 @@
   <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">✳</span><span>pawquest<span class="brand-dot">.</span></span></a><p>More curious days. More contented paws.</p><div><a href="#shop">Shop</a><a href="#how">How it works</a><a href="/admin.html">Order dashboard</a></div><small>© 2026 PawQuest. A hackathon concept store.</small></footer>
 
   <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="cart-drawer" id="orders-drawer" aria-label="Placed orders" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR PURCHASES</p><h2>Placed orders <span id="orders-drawer-count">(0)</span></h2></div><button class="icon-button" id="orders-close" aria-label="Close placed orders">×</button></div>
+    <div id="orders-list" class="cart-items"><div class="empty-cart">Loading orders…</div></div>
+  </aside>
   <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
     <div class="drawer-head"><div><p class="eyebrow">YOUR LITTLE ADVENTURE</p><h2>Your bag <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="cart-close" aria-label="Close cart">×</button></div>
     <div id="cart-items" class="cart-items"><div class="empty-cart">Your bag is waiting for a little joy. <a href="#shop" id="empty-shop">Explore the shop ↗</a></div></div>
@@ -103,8 +107,8 @@
     <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
       <div class="drawer-head"><div><p class="eyebrow">ORDER PLACED</p><h2 id="confirm-title">Thank you ✳</h2></div><button class="icon-button" id="confirmation-close" aria-label="Close confirmation">×</button></div>
       <div class="drawer-head" style="border-bottom:none;padding-bottom:0;margin-bottom:20px"><div style="text-align:center"><div class="confirm-check" style="width:56px;height:56px;border-radius:50%;background:var(--green);color:var(--darkgreen);display:grid;place-items:center;font-size:30px;margin:0 auto 18px">✳</div><h3 style="margin:12px 0 6px;font:800 22px var(--display);letter-spacing:-.04em">Order confirmed</h3><p style="color:var(--muted);font-size:13px;margin:0">Your little adventure is on its way.</p></div></div>
-      <div style="padding:0 30px 20px"><div class="order-summary" style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Order ID</span><strong id="confirm-order-id-modal">—</strong></div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Total</span><strong id="confirm-total-modal">₹0</strong></div><div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>Status</span><strong>Received</strong></div></div><p class="payment-note" style="font-size:12px">Demo checkout: no payment was collected. Your order has been saved as a test order.</p></div>
-      <div class="drawer-bottom" style="border-top:none;padding-top:0"><div class="btn-group" style="display:flex;gap:12px;justify-content:center"><a class="button button-dark" href="/">Continue shopping</a><a class="button" style="background:transparent;border:1px solid var(--line);color:var(--ink)" href="/admin.html">View dashboard</a></div></div>
+      <div style="padding:0 30px 20px"><div class="order-summary" style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Order ID</span><strong id="confirm-order-id-modal">—</strong></div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Total</span><strong id="confirm-total-modal">₹0</strong></div><div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>Status</span><strong>Received</strong></div></div><div class="confirmation-products" id="confirm-products-modal"></div><p class="payment-note" style="font-size:12px">Demo checkout: no payment was collected. Your order has been saved as a test order.</p></div>
+      <div class="drawer-bottom" style="border-top:none;padding-top:0"><div class="btn-group" style="display:flex;gap:12px;justify-content:center"><a class="button button-dark" href="/">Continue shopping</a><a class="button button-dark" href="/admin.html">View dashboard</a></div></div>
     </section>
   </div>
   <div class="toast" id="toast" role="status"></div>

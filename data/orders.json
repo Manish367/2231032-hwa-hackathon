@@ -1,7 +1,7 @@
 [
   {
-    "id": "PQ-MWRDV4DW",
-    "createdAt": "2026-11-22T05:15:18.644Z",
+    "id": "PQ-MWRI1RWK",
+    "createdAt": "2026-11-22T07:12:27.524Z",
     "status": "Received",
     "customer": {
       "name": "Monish Kumar Das",
@@ -13,12 +13,13 @@
     },
     "items": [
       {
-        "id": "pawquest-station",
-        "name": "PawQuest Enrichment Station",
-        "price": 4499,
-        "quantity": 1
+        "id": "training-treat-pouch",
+        "name": "Adventure Treat Pouch",
+        "price": 799,
+        "quantity": 1,
+        "image": "/img/Adventure%20Treat%20Pouch.png"
       }
     ],
-    "total": 4499
+    "total": 799
   }
 ]
