@@ -89,6 +89,10 @@ const products = [
   { id: "memory-game", name: "Cup-and-Treat Memory Game", tagline: "Track the cup and earn the reward.", price: 959, compareAt: 1199, category: "Puzzle toys", rating: 4.7, reviews: 33, badge: "New skill", image: "/img/Cup-and-Treat%20Memory%20Game.png", description: "A simple scent-and-memory puzzle using sturdy sliding cups.", features: ["Three puzzle cups", "Textured surfaces", "Beginner friendly"], includes: ["3 cups", "Training guide"] }
 ];
 
+products.forEach(product => {
+  product.image = product.image.replace(/\.png$/, ".webp");
+});
+
 function readOrders() { return orders; }
 function writeOrders(newOrders) {
   orders = newOrders;

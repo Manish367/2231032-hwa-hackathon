@@ -15,9 +15,9 @@ async function loadProducts() {
   }
 }
 function renderProducts() {
-  $("#product-grid").innerHTML = state.products.map(p => `
+  $("#product-grid").innerHTML = state.products.map((p, index) => `
     <article class="product-card">
-      <div class="product-image ${visualClass(p.id)}"><span class="product-badge">${escapeHtml(p.badge)}</span><img class="product-real-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy"></div>
+      <div class="product-image ${visualClass(p.id)}"><span class="product-badge">${escapeHtml(p.badge)}</span><img class="product-real-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="${index < 6 ? "eager" : "lazy"}" decoding="async"></div>
       <div class="product-info">
         <div class="product-meta"><span>${p.category}</span><span>★ ${p.rating} (${p.reviews})</span></div>
         <h3>${p.name}</h3><p>${p.tagline}</p>
