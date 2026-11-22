@@ -99,6 +99,14 @@
       </form>
     </section>
   </div>
+  <div class="modal-backdrop" id="confirmation-modal">
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+      <div class="drawer-head"><div><p class="eyebrow">ORDER PLACED</p><h2 id="confirm-title">Thank you ✳</h2></div><button class="icon-button" id="confirmation-close" aria-label="Close confirmation">×</button></div>
+      <div class="drawer-head" style="border-bottom:none;padding-bottom:0;margin-bottom:20px"><div style="text-align:center"><div class="confirm-check" style="width:56px;height:56px;border-radius:50%;background:var(--green);color:var(--darkgreen);display:grid;place-items:center;font-size:30px;margin:0 auto 18px">✳</div><h3 style="margin:12px 0 6px;font:800 22px var(--display);letter-spacing:-.04em">Order confirmed</h3><p style="color:var(--muted);font-size:13px;margin:0">Your little adventure is on its way.</p></div></div>
+      <div style="padding:0 30px 20px"><div class="order-summary" style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Order ID</span><strong id="confirm-order-id-modal">—</strong></div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Total</span><strong id="confirm-total-modal">₹0</strong></div><div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted)"><span>Status</span><strong>Received</strong></div></div><p class="payment-note" style="font-size:12px">Demo checkout: no payment was collected. Your order has been saved as a test order.</p></div>
+      <div class="drawer-bottom" style="border-top:none;padding-top:0"><div class="btn-group" style="display:flex;gap:12px;justify-content:center"><a class="button button-dark" href="/">Continue shopping</a><a class="button" style="background:transparent;border:1px solid var(--line);color:var(--ink)" href="/admin.html">View dashboard</a></div></div>
+    </section>
+  </div>
   <div class="toast" id="toast" role="status"></div>
   <script src="/app.js"></script>
 </body>

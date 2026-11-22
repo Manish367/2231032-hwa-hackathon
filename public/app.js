@@ -79,6 +79,10 @@ $("#checkout-open").addEventListener("click", () => {
   closeCart(); $("#checkout-modal").classList.add("show");
 });
 $("#checkout-close").addEventListener("click", () => $("#checkout-modal").classList.remove("show"));
+$("#confirmation-close").addEventListener("click", () => {
+  $("#confirmation-modal").classList.remove("show");
+  $("#drawer-backdrop").classList.remove("show");
+});
 $("#checkout-modal").addEventListener("click", e => { if (e.target.id === "checkout-modal") $("#checkout-modal").classList.remove("show"); });
 $("#checkout-form").addEventListener("submit", async e => {
   e.preventDefault();
@@ -96,7 +100,11 @@ $("#checkout-form").addEventListener("submit", async e => {
     state.cart = []; saveCart(); $("#checkout-modal").classList.remove("show"); e.currentTarget.reset();
     localStorage.setItem("pawquest-last-order", JSON.stringify({ order: result.order, total: result.order.total }));
     showToast(`Order ${result.order.id} received — thank you!`);
-    setTimeout(() => { location.href = "/confirmation.html"; }, 600);
+    document.getElementById("confirm-order-id-modal").textContent = result.order.id;
+    document.getElementById("confirm-total-modal").textContent = rupees(result.order.total);
+    $("#checkout-error").textContent = "";
+    $("#confirmation-modal").classList.add("show");
+    $("#drawer-backdrop").classList.add("show");
   } catch (err) { error.textContent = err.message; }
   finally { button.disabled = false; button.innerHTML = 'Place demo order <span>→</span>'; }
 });
