@@ -94,8 +94,9 @@ $("#checkout-form").addEventListener("submit", async e => {
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "Could not place order.");
     state.cart = []; saveCart(); $("#checkout-modal").classList.remove("show"); e.currentTarget.reset();
+    localStorage.setItem("pawquest-last-order", JSON.stringify({ order: result.order, total: result.order.total }));
     showToast(`Order ${result.order.id} received — thank you!`);
-    setTimeout(() => alert(`Thanks for your order!\\n\\nOrder ID: ${result.order.id}\\nTotal: ${rupees(result.order.total)}\\n\\nThis is a demo order; no payment was collected.`), 150);
+    setTimeout(() => { location.href = "/confirmation.html"; }, 600);
   } catch (err) { error.textContent = err.message; }
   finally { button.disabled = false; button.innerHTML = 'Place demo order <span>→</span>'; }
 });
