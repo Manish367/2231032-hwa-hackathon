@@ -105,6 +105,7 @@ $("#checkout-form").addEventListener("submit", async e => {
     $("#checkout-error").textContent = "";
     $("#confirmation-modal").classList.add("show");
     $("#drawer-backdrop").classList.add("show");
+    setTimeout(() => { location.href = "/confirmation.html"; }, 3000);
   } catch (err) { error.textContent = err.message; }
   finally { button.disabled = false; button.innerHTML = 'Place demo order <span>→</span>'; }
 });
