@@ -1,0 +1,14 @@
+{
+  "name": "pawquest-happy-while-away",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PawQuest dog enrichment product storefront for the Happy While Away hackathon",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
